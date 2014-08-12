@@ -47,7 +47,7 @@ public class Runner {
                System.out.println("Summ = " + Calc.divide(a,b));
                break;
            default:
-               System.out.println("Incorrect value! You are a stupid monkey!");
+               System.out.println("Incorrect value! You are a stupid monkey!!!");
        }
    }
 }
