@@ -1,4 +1,4 @@
-package CalcPackage;
+package calcPackage;
 
 import java.util.Scanner;
 
@@ -29,22 +29,22 @@ public class Runner {
        switch (action) {
            case "+":
 
-               System.out.println("Summ = " + Calc.sum(a,b));
+               System.out.println("Summ = " + Calc.sum(a, b));
            break;
 
            case "-":
 
-               System.out.println("Summ = " + Calc.minus(a,b));
+               System.out.println("Summ = " + Calc.minus(a, b));
                break;
 
            case "*":
 
-               System.out.println("Summ = " + Calc.mult(a,b));
+               System.out.println("Summ = " + Calc.mult(a, b));
                break;
 
            case "/":
 
-               System.out.println("Summ = " + Calc.divide(a,b));
+               System.out.println("Summ = " + Calc.divide(a, b));
                break;
            default:
                System.out.println("Incorrect value! You are a stupid monkey!!!");
