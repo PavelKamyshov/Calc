@@ -2,5 +2,4 @@
 *.ipr
 *.iws
 .idea/*
-target/*
-gitignore
+target/
