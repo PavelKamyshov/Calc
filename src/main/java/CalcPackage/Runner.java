@@ -8,52 +8,86 @@ import java.util.Scanner;
 public class Runner {
    public static void main(String[] args) {
        boolean repeat = false;
-       float a = 0; float b = 0;
+       float a = 0; float b = 0; String action = "nothing";
 
        Scanner scanner = new Scanner(System.in);
 
        do {
 
-           System.out.println("Please input the first digit or anything else to exit the program");
+           System.out.println("Please input the first digit. Input 0 to exit the program.");
 
            try {
 
                a = scanner.nextFloat();
-
+               if (a == 0) {
+                   System.exit(0);
+               }
                repeat = false;
 
            } catch (Exception e) {
 
-
-               scanner.;
+               scanner.next();
 
                System.out.println("You entered incorrect value, please try again");
-               //System.exit(0);
                repeat = true;
            }
 
        } while (repeat);
 
-       System.out.println("Please enter the desired action: + summarize, - exclusion, * multiplication, / division");
 
-       //Scanner scanner = new Scanner(System.in);        //наверное Сканнер нельзя вызывать кучу раз и эту строку можно закомментить
-       String action = "nothing";
-       try {
-       action = scanner.next();}
-       catch (Exception e) {
-           System.out.println("You entered incorrect value, the program will now exit");
-           System.exit(0);
-       }
+       do {
 
-       System.out.println("Please input the second digit or anything else to exit the program");
-      // Scanner scanner = new Scanner(System.in);
+           System.out.println("Please enter the desired action: + summarize, - exclusion, * multiplication, / division");
 
-       try {
-       b = scanner.nextFloat(); }
-       catch (Exception e) {
-           System.out.println("You entered incorrect value, the program will now exit");
-           System.exit(0);
-       }
+           try {
+
+               action = scanner.next();
+               if (action == "0" ) {
+                   System.exit(0);
+               }
+
+               if (action == "+" || action == "-" || action == "*" || action == "/") {
+                   repeat = false;
+               }
+               else {
+                   scanner.next();
+                   System.out.println("You entered incorrect value, please try again");
+                   repeat = true;
+               }
+
+           } catch (Exception e) {
+
+               scanner.next();
+
+               System.out.println("You entered incorrect value, please try again");
+               repeat = true;
+           }
+
+       } while (repeat);
+
+
+
+       do {
+
+           System.out.println("Please input the second digit. Input 0 to exit the program.");
+
+           try {
+
+               b = scanner.nextFloat();
+               if (b == 0) {
+                   System.exit(0);
+               }
+               repeat = false;
+
+           } catch (Exception e) {
+
+               scanner.next();
+
+               System.out.println("You entered incorrect value, please try again");
+               repeat = true;
+           }
+
+       } while (repeat);
 
        switch (action) {
            case "+":
@@ -76,7 +110,7 @@ public class Runner {
                System.out.println("Summ = " + Calc.divide(a, b));
                break;
            default:
-               System.out.println("Incorrect value! You are a stupid monkey!!!");
+               System.out.println("Incorrect action value! You are a stupid monkey!!!");
        }
    }
 }
