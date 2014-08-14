@@ -7,24 +7,53 @@ import java.util.Scanner;
  */
 public class Runner {
    public static void main(String[] args) {
-       boolean repeat = true;
-
-       System.out.println("Please input the first digit or anything else to exit the program");
+       boolean repeat = false;
+       float a = 0; float b = 0;
 
        Scanner scanner = new Scanner(System.in);
-       float a = 0;
-       a = scanner.nextFloat();
+
+       do {
+
+           System.out.println("Please input the first digit or anything else to exit the program");
+
+           try {
+
+               a = scanner.nextFloat();
+
+               repeat = false;
+
+           } catch (Exception e) {
+
+
+               scanner.;
+
+               System.out.println("You entered incorrect value, please try again");
+               //System.exit(0);
+               repeat = true;
+           }
+
+       } while (repeat);
 
        System.out.println("Please enter the desired action: + summarize, - exclusion, * multiplication, / division");
 
        //Scanner scanner = new Scanner(System.in);        //наверное Сканнер нельзя вызывать кучу раз и эту строку можно закомментить
        String action = "nothing";
-       action = scanner.next();
+       try {
+       action = scanner.next();}
+       catch (Exception e) {
+           System.out.println("You entered incorrect value, the program will now exit");
+           System.exit(0);
+       }
 
        System.out.println("Please input the second digit or anything else to exit the program");
       // Scanner scanner = new Scanner(System.in);
-       float b = 0;
-       b = scanner.nextFloat();
+
+       try {
+       b = scanner.nextFloat(); }
+       catch (Exception e) {
+           System.out.println("You entered incorrect value, the program will now exit");
+           System.exit(0);
+       }
 
        switch (action) {
            case "+":
