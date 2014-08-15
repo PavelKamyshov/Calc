@@ -39,29 +39,34 @@ public class Runner {
 
            System.out.println("Please enter the desired action: + summarize, - exclusion, * multiplication, / division");
 
-           try {
-
+         //  try {
                action = scanner.next();
-               if (action == "0" ) {
-                   System.exit(0);
+               try {
+                  if (Integer.parseInt(action) == 0) {
+                       System.exit(0);
+                   }
                }
+                catch (Exception e) {
 
-               if (action == "+" || action == "-" || action == "*" || action == "/") {
+
+               if (action.contentEquals("+")|| action.contentEquals("-") || action.contentEquals("*") || action.contentEquals("/")) {
+
                    repeat = false;
                }
+
                else {
                    scanner.next();
                    System.out.println("You entered incorrect value, please try again");
                    repeat = true;
-               }
-
-           } catch (Exception e) {
-
-               scanner.next();
-
-               System.out.println("You entered incorrect value, please try again");
-               repeat = true;
-           }
+               } }
+//
+//           } catch (Exception e) {
+//
+//               scanner.next();
+//
+//               System.out.println("You entered incorrect value, please try again");
+//               repeat = true;
+//           }
 
        } while (repeat);
 
