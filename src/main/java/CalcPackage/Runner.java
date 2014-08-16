@@ -6,116 +6,118 @@ import java.util.Scanner;
  * Created by Pavlo_Kamyshov on 8/11/2014.
  */
 public class Runner {
-   public static void main(String[] args) {
-       boolean repeat = false;
-       float a = 0; float b = 0; String action = "nothing";
+    public static void main(String[] args) {
+        boolean repeat = false;
+        float a = 0;
+        float b = 0;
+        String action = "nothing";
 
-       Scanner scanner = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
 
-       do {
+        do {
 
-           System.out.println("Please input the first digit. Input 0 to exit the program.");
+            do {
 
-           try {
+                System.out.println("Please input the first digit. Input 0 to exit the program.");
 
-               a = scanner.nextFloat();
-               if (a == 0) {
-                   System.exit(0);
-               }
-               repeat = false;
+                try {
 
-           } catch (Exception e) {
+                    a = scanner.nextFloat();
+                    if (a == 0) {
+                        System.exit(0);
+                    }
+                    repeat = false;
 
-               scanner.next();
+                } catch (Exception e) {
 
-               System.out.println("You entered incorrect value, please try again");
-               repeat = true;
-           }
+                    scanner.next();
 
-       } while (repeat);
+                    System.out.println("You entered incorrect value, please try again");
+                    repeat = true;
+                }
 
-
-       do {
-
-           System.out.println("Please enter the desired action: + summarize, - exclusion, * multiplication, / division");
-
-         //  try {
-               action = scanner.next();
-               try {
-                  if (Integer.parseInt(action) == 0) {
-                       System.exit(0);
-                   }
-               }
-                catch (Exception e) {
+            } while (repeat);
 
 
-               if (action.contentEquals("+")|| action.contentEquals("-") || action.contentEquals("*") || action.contentEquals("/")) {
+            do {
 
-                   repeat = false;
-               }
+                System.out.println("Please enter the desired action: + summarize, - exclusion, * multiplication, / division");
 
-               else {
-                   scanner.next();
-                   System.out.println("You entered incorrect value, please try again");
-                   repeat = true;
-               } }
-//
+                //  try {
+                action = scanner.next();
+                try {
+                    if (Integer.parseInt(action) == 0) {
+                        System.exit(0);
+                    }
+                } catch (Exception e) {
+
+
+                    if (action.contentEquals("+") || action.contentEquals("-") || action.contentEquals("*") || action.contentEquals("/")) {
+
+                        repeat = false;
+                    } else {
+                        //scanner.next();
+                        System.out.println("You entered incorrect value, please try again");
+                        repeat = true;
+                    }
+                }
+
 //           } catch (Exception e) {
 //
-//               scanner.next();
+//               //scanner.next();
 //
 //               System.out.println("You entered incorrect value, please try again");
 //               repeat = true;
 //           }
 
-       } while (repeat);
+            } while (repeat);
 
 
+            do {
 
-       do {
+                System.out.println("Please input the second digit. Input 0 to exit the program.");
 
-           System.out.println("Please input the second digit. Input 0 to exit the program.");
+                try {
 
-           try {
+                    b = scanner.nextFloat();
+                    if (b == 0) {
+                        System.exit(0);
+                    }
+                    repeat = false;
 
-               b = scanner.nextFloat();
-               if (b == 0) {
-                   System.exit(0);
-               }
-               repeat = false;
+                } catch (Exception e) {
 
-           } catch (Exception e) {
+                    scanner.next();
 
-               scanner.next();
+                    System.out.println("You entered incorrect value, please try again");
+                    repeat = true;
+                }
 
-               System.out.println("You entered incorrect value, please try again");
-               repeat = true;
-           }
+            } while (repeat);
 
-       } while (repeat);
+            switch (action) {
+                case "+":
 
-       switch (action) {
-           case "+":
+                    System.out.println("Summ = " + Calc.sum(a, b));
+                    break;
 
-               System.out.println("Summ = " + Calc.sum(a, b));
-           break;
+                case "-":
 
-           case "-":
+                    System.out.println("Summ = " + Calc.minus(a, b));
+                    break;
 
-               System.out.println("Summ = " + Calc.minus(a, b));
-               break;
+                case "*":
 
-           case "*":
+                    System.out.println("Summ = " + Calc.mult(a, b));
+                    break;
 
-               System.out.println("Summ = " + Calc.mult(a, b));
-               break;
+                case "/":
 
-           case "/":
-
-               System.out.println("Summ = " + Calc.divide(a, b));
-               break;
-           default:
-               System.out.println("Incorrect action value! You are a stupid monkey!!!");
-       }
-   }
+                    System.out.println("Summ = " + Calc.divide(a, b));
+                    break;
+                default:
+                    System.out.println("Incorrect action value! You are a stupid monkey!!!");
+            }
+        }  while ( a == a);
+    }
 }
