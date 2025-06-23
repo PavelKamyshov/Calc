@@ -1,4 +1,4 @@
-package calcPackage;
+package CalcPackage;
 
 /**
  * Created by Pavlo_Kamyshov on 8/11/2014.
